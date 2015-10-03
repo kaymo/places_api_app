@@ -23,9 +23,8 @@ var locat = DEFAULT_PLACE;
 // GMaps objects
 var map = null;
 var marker = null;
-var infoWindow = null;
-var directionsService = new google.maps.DirectionsService;
-var directionsDisplay = new google.maps.DirectionsRenderer;
+var directionsService = new google.maps.DirectionsService();
+var directionsDisplay = new google.maps.DirectionsRenderer();
 var service = null;
 
 // Compiled results
@@ -59,7 +58,7 @@ function getLocation() {
  * Function: Geolocation success callback
  */
 function showPosition(position) {
-    var geocoder = new google.maps.Geocoder;
+    var geocoder = new google.maps.Geocoder();
     var latlng = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
@@ -172,8 +171,8 @@ $(window).one("firstResult", function() {
 
     // Create the Google objects for getting a route
     service = new google.maps.places.PlacesService(map);
-    directionsService = new google.maps.DirectionsService;
-    directionsDisplay = new google.maps.DirectionsRenderer;
+    directionsService = new google.maps.DirectionsService();
+    directionsDisplay = new google.maps.DirectionsRenderer();
     directionsDisplay.setMap(map);
 
     // Check that we have a result
@@ -294,7 +293,7 @@ function updateDetails(result, website, phone, review, distance, duration) {
 
 	// POI reviews
     if (!review) {
-        review = 'No Google reviews yet.'
+        review = 'No Google reviews yet.';
     }
     $('#poi-review').html(review);
 
