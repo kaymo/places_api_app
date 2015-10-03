@@ -1,0 +1,147 @@
+/** **************************************************************************************
+ * Summary: Google-powered, single-page, web app to tell you what to do with your day.
+ *
+ * Kim Mroz 2015
+ */
+
+html, body { 
+	height: 100%; 
+	margin: 0; 
+	padding: 0; 
+	overflow-y: scroll;
+}
+
+/**
+ * Fonts
+ */
+
+h1 {
+	font-family: Patua One !important;
+	color: white;
+	text-align:center;
+	font-size:150% !important;
+}
+
+h2 {
+	font-family: Patua One !important;
+	margin-bottom:0;
+	padding-bottom:0;
+}
+ 
+h3,h4,h5 {
+	font-family: Patua One !important;
+}
+
+h6 {
+	font-size:80% !important;
+}
+
+a {
+	color: #317575;
+    border-bottom: 1px dashed #317575;
+    text-decoration: none; 
+}
+
+/**
+ * Footer
+ */
+ 
+footer {
+	text-align:center;
+	background-color: #333333 !important;
+	width: 100%;
+	height: 38px;
+}
+
+footer img {
+	padding:10px;
+}
+
+/**
+ * Title
+ */
+
+.title-area {
+	margin: auto;
+	padding:0;
+	float: none !important;
+}
+
+/**
+ * Next Button
+ */
+
+.button-parent {
+	text-align: center;
+}
+
+/**
+ * Rating
+ */
+
+.star-rating {
+	width: 20px;
+	height: 16px;
+}
+
+#poi-rating {
+    margin: auto;
+    width: 120px;
+    height: 16px;
+    overflow: hidden;
+}
+
+/**
+ * Content Blocks
+ */
+
+#body-block {
+	min-height: 400px;
+	border: 5px dashed #ddd !important;
+	padding-bottom: 25px;
+	margin: 20px 0;
+	text-align: center;
+}
+
+#final-message {
+	text-align: center;
+	margin-top: 50px;
+}
+
+#title-box {
+	min-height: 110px;
+	text-align: center;
+}
+
+#poi-type {
+	color: #555;
+	margin: 0;
+	padding: 0;
+}
+
+#left-box-inner {
+	background-color: #f6f6f6 !important;
+	overflow: hidden;
+	position: relative;
+}
+
+#overflow-fade {
+	height: 60px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	
+	background: -moz-linear-gradient(top,  rgba(246,246,246,0) 0%, rgba(246,246,246,1) 82%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(246,246,246,0)), color-stop(82%,rgba(246,246,246,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(246,246,246,0) 0%,rgba(246,246,246,1) 82%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(246,246,246,0) 0%,rgba(246,246,246,1) 82%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(246,246,246,0) 0%,rgba(246,246,246,1) 82%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(246,246,246,0) 0%,rgba(246,246,246,1) 82%); /* W3C */
+	filter: progid\:DXImageTransform\.Microsoft\.gradient( startColorstr='#00ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+}
+
+#map {
+	min-height: 250px;
+	height: 100%;
+	width: 100%;
+}

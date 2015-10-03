@@ -1,72 +1,120 @@
-<!doctype html>
+<!--
+    Summary: Google-powered, single-page, web app to tell you what to do with your day.
+-->
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Places API Demo App by kaymo</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Places API Demo App</h1>
-        <p>A Google-powered, single-page, demo web-app for telling you what to do with your day.</p>
-
-        <p class="view"><a href="https://github.com/kaymo/places_api_app">View the Project on GitHub <small>kaymo/places_api_app</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/kaymo/places_api_app/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/kaymo/places_api_app/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/kaymo/places_api_app">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
-<a id="a-google-powered-single-page-web-app-for-telling-you-what-to-do-with-your-day" class="anchor" href="#a-google-powered-single-page-web-app-for-telling-you-what-to-do-with-your-day" aria-hidden="true"><span class="octicon octicon-link"></span></a>A Google-powered, single-page, web-app for telling you what to do with your day.</h1>
-
-<p>To run: Download the repository and open <code>places_api_app.html</code> in a capable browser.</p>
-
-<h2>
-<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
-
-<ul>
-<li>HTML5 Geolocation</li>
-<li>Enabled JavaScript</li>
-<li>Google Maps JavaScript API V3</li>
-</ul>
-
-<h2>
-<a id="included-libraries" class="anchor" href="#included-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Included Libraries</h2>
-
-<ul>
-<li>jQuery</li>
-<li>Foundation 5</li>
-</ul>
-
-<h2>
-<a id="developed-and-tested" class="anchor" href="#developed-and-tested" aria-hidden="true"><span class="octicon octicon-link"></span></a>Developed and tested</h2>
-
-<ul>
-<li>Safari 8.0.6</li>
-<li>Firefox 41.0.1</li>
-<li>Chrome 45.0.2454.101</li>
-</ul>
-
-<p>Kim Mroz, 2015</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/kaymo">kaymo</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
+    <head>
+        <title>Kim Mroz | 2015</title>
+        
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        
+        <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Patua+One' >
+        <link rel='stylesheet' type='text/css' href='third-party/foundation-5/css/foundation.min.css'>
+        <link rel='stylesheet' type='text/css' href='places_api_app.css'>
+        
+        <script type='text/javascript' src='third-party/foundation-5/js/vendor/modernizr.js'></script>
+        <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCz2k_0GrZ9q6vYTmcBkyY4y_grslg5a1Q&libraries=places'></script>
+    </head>
+    <body>
+  
+        <div id="body-container">
+        
+            <!-- Top Bar -->
+            <nav class="top-bar" data-topbar role="navigation">
+                <ul class="title-area">
+                    <li class="name">
+                        <h1 id="location-heading">Finding your location ...</h1>
+                    </li>
+                </ul>
+            </nav>
+        
+            <!-- Content -->
+            <div class="row">
+                <div class="small-12 columns">
+                    <div id="body-block" class="hide small-12 columns panel">
+                    
+                        <!-- Name, Type and Status -->
+                        <div id="title-box" class="small-12 columns">
+                            <h2 id="poi-name" class="poi-data"></h2>
+                            <h3 id="poi-type" class="poi-data"></h3>
+                        </div>
+                        
+                        <!-- Reviews -->
+                        <div id="left-box" class="hide content-column small-12 medium-4 columns">
+                            <div id="left-box-inner" class="small-12 columns">
+                                <h3>Reviews</h3>
+                                <div id="poi-rating" class="hide">
+                                    <svg class="star-rating">
+                                        <path  d="M  8.000 12.000 L 12.702 14.472 L 11.804 9.236
+                                                  L 15.608  5.528 L 10.351  4.764 L  8.000 0.000 
+                                                  L  5.649  4.764 L  0.392  5.528 L  4.196 9.236
+                                                  L  3.298 14.472 L  8.000 12.000"/>
+                                    </svg>
+                                    <svg class="star-rating">
+                                        <path  d="M  8.000 12.000 L 12.702 14.472 L 11.804 9.236
+                                                  L 15.608  5.528 L 10.351  4.764 L  8.000 0.000 
+                                                  L  5.649  4.764 L  0.392  5.528 L  4.196 9.236
+                                                  L  3.298 14.472 L  8.000 12.000"/>
+                                    </svg>
+                                    <svg class="star-rating">
+                                        <path  d="M  8.000 12.000 L 12.702 14.472 L 11.804 9.236
+                                                  L 15.608  5.528 L 10.351  4.764 L  8.000 0.000 
+                                                  L  5.649  4.764 L  0.392  5.528 L  4.196 9.236
+                                                  L  3.298 14.472 L  8.000 12.000"/>
+                                    </svg>
+                                    <svg class="star-rating">
+                                        <path  d="M  8.000 12.000 L 12.702 14.472 L 11.804 9.236
+                                                  L 15.608  5.528 L 10.351  4.764 L  8.000 0.000 
+                                                  L  5.649  4.764 L  0.392  5.528 L  4.196 9.236
+                                                  L  3.298 14.472 L  8.000 12.000"/>
+                                    </svg>
+                                    <svg class="star-rating">
+                                        <path  d="M  8.000 12.000 L 12.702 14.472 L 11.804 9.236
+                                                  L 15.608  5.528 L 10.351  4.764 L  8.000 0.000 
+                                                  L  5.649  4.764 L  0.392  5.528 L  4.196 9.236
+                                                  L  3.298 14.472 L  8.000 12.000"/>
+                                    </svg>
+                                </div>
+                                <h6  id="poi-review" class="poi-data"></h6>
+                            </div>
+                            <div id="overflow-fade" class="hide"></div>
+                        </div>
+                        
+                        <!-- Contact and Route Details -->
+                        <div id="middle-box" class="content-column small-12 medium-4 columns">
+                            <h4 id="poi-phone"    class="poi-data"></h4>
+                            <h4 id="poi-website"  class="poi-data"></h4>
+                            <h4 id="poi-distance" class="poi-data"></h4>
+                        </div>
+                        
+                        <!-- Map -->
+                        <div id="right-box" class="content-column small-12 medium-4 columns">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Next Button -->
+            <div class="row">
+                <div class="hide button-parent small-12 columns">
+                    <a href="#" id="next-button" class="button disabled">next</a>
+                </div>
+            </div>
+        </div>    
+            
+        <!-- Footer -->
+        <footer> 
+            <img src="third-party/google-api/img/powered_by_google_on_non_white.png" alt="Powered by Google">
+        </footer>
+          
+        <!-- JavaScript Includes -->
+        <script src="third-party/foundation-5/js/vendor/jquery.js"></script>
+        <script src="third-party/foundation-5/js/vendor/fastclick.js"></script>
+        <script src="third-party/foundation-5/js/foundation.min.js"></script>
+        <script>$(document).foundation();</script>
+        <script src="places_api_app.js"></script>
     
-  </body>
+    </body>
 </html>
