@@ -14,20 +14,22 @@ html, body {
 /**
  * Fonts
  */
- 
-h1,h2,h3,h4,h5 {
-	font-family: Patua One !important;
-}
 
 h1 {
+	font-family: Patua One !important;
 	color: white;
 	text-align:center;
 	font-size:150% !important;
 }
 
 h2 {
+	font-family: Patua One !important;
 	margin-bottom:0;
 	padding-bottom:0;
+}
+ 
+h3,h4,h5 {
+	font-family: Patua One !important;
 }
 
 h6 {
@@ -126,7 +128,7 @@ footer img {
 #overflow-fade {
 	height: 60px;
 	position: absolute;
-	bottom: 0px;
+	bottom: 0;
 	width: 100%;
 	
 	background: -moz-linear-gradient(top,  rgba(246,246,246,0) 0%, rgba(246,246,246,1) 82%); /* FF3.6+ */
