@@ -15,7 +15,7 @@ var DEFAULT_COORDS = {
     lat: 51.5072,
     lng: -0.1275
 };
-var DEFAULT_PLACE = "London, UK";
+var DEFAULT_PLACE = 'London, UK';
 
 var coord = DEFAULT_COORDS;
 var locat = DEFAULT_PLACE;
@@ -50,7 +50,7 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
     } else {
-        alert("Geolocation not supported ... Imagine you're in " + DEFAULT_PLACE + ".");
+        alert("Geolocation not supported ... Imagine you're in " + DEFAULT_PLACE + '.');
     }
 }
 
@@ -72,10 +72,10 @@ function showPosition(position) {
                 locat = results[1].formatted_address;
                 coord = latlng;
             } else {
-                alert("No results found ... Imagine you're in " + DEFAULT_PLACE + ".");
+                alert("No results found ... Imagine you're in " + DEFAULT_PLACE + '.');
             }
         } else {
-            alert("Geocoder failed ... Imagine you're in " + DEFAULT_PLACE + ".");
+            alert("Geocoder failed ... Imagine you're in " + DEFAULT_PLACE + '.');
         }
 
         searchPOI(locat, coord);
@@ -85,8 +85,8 @@ function showPosition(position) {
 /**
  * Function: Geolocation failure callback
  */
-function showError(error) {
-    alert("Geolocation failed ... Imagine you're in " + DEFAULT_PLACE + ".");
+function showError(undefined) {
+    alert("Geolocation failed ... Imagine you're in " + DEFAULT_PLACE + '.');
     searchPOI(locat, coord);
 }
 
@@ -101,8 +101,8 @@ function showError(error) {
 function searchPOI(contents, coord) {
 
     // Update the header
-    if ("" !== contents) {
-        $('#location-heading').html("Bored in " + contents + "?");
+    if ('' !== contents) {
+        $('#location-heading').html('Bored in ' + contents + '?');
     }
 
     // Request nearby POI via Google Places API
@@ -112,7 +112,7 @@ function searchPOI(contents, coord) {
         types: GOOGLE_POI_TYPES
     };
     
-    var service = new google.maps.places.PlacesService($("footer img").get(0));
+    var service = new google.maps.places.PlacesService($('footer img').get(0));
     service.nearbySearch(request, processSearchResults);
 }
 
@@ -155,7 +155,7 @@ function processSearchResults(results, status, pagination) {
 /**
  * Function: When the first result is ready, fill the page and get further details
  */
-$(window).one("firstResult", function() {
+$(window).one('firstResult', function() {
 
     // Add a Google map
     map = new google.maps.Map(document.getElementById('map'), {
@@ -282,7 +282,7 @@ function updateDetails(result, website, phone, review, distance, duration) {
     // POI type and current open/closed status
     var subLine = '';
     if (result.types[0]) {
-        subLine += result.types[0].replace("_", " ");
+        subLine += result.types[0].replace('_', ' ');
     }
     if (result.opening_hours && result.opening_hours.hasOwnProperty('open_now')) {
         subLine += ' &mdash; ';
@@ -309,8 +309,8 @@ function updateDetails(result, website, phone, review, distance, duration) {
 
 	// POI star rating (rounded to nearest integer)
     if (result.rating) {
-    	$('#poi-rating').width(result.rating * 26.5);
-    	$('#poi-rating').show();
+        $('#poi-rating').width(result.rating * 26.5);
+        $('#poi-rating').show();
     }
 
 	// POI route length/duration when driving
@@ -331,7 +331,7 @@ function showFinalMessage() {
         msg += result_set.length ? 'more ' : '';
         msg += 'places found.<br><br>You should probably move ...';
     } else {
-    	msg = "Didn't like those?<br><br>You should probably move ...";
+        msg = "Didn't like those?<br><br>You should probably move ...";
     }
 
 	// Show final message
@@ -360,9 +360,9 @@ $('#next-button').click(function() {
 /**
  * Function: [Enter] should move to the next POI
  */
-$("html").keyup(function(event) {
+$('html').keyup(function(event) {
     if (13 == event.keyCode) {
-        $("#next-button").click();
+        $('#next-button').click();
     }
 });
 
@@ -376,7 +376,7 @@ $("html").keyup(function(event) {
 /**
  * Function: On load, ensure the responsive elements are relatively correct
  */
-$(window).one("load", function() {
+$(window).one('load', function() {
 
     // Show body and button
     $('#body-block').show();
