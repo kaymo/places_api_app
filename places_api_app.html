@@ -1,0 +1,120 @@
+<!--
+    Summary: Google-powered, single-page, web app to tell you what to do with your day.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kim Mroz | 2015</title>
+        
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        
+        <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Patua+One' >
+        <link rel='stylesheet' type='text/css' href='third-party/foundation-5/css/foundation.min.css'>
+        <link rel='stylesheet' type='text/css' href='places_api_app.css'>
+        
+        <script type='text/javascript' src='third-party/foundation-5/js/vendor/modernizr.js'></script>
+        <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCz2k_0GrZ9q6vYTmcBkyY4y_grslg5a1Q&libraries=places'></script>
+    </head>
+    <body>
+  
+        <div id="body-container">
+        
+            <!-- Top Bar -->
+            <nav class="top-bar" data-topbar role="navigation">
+                <ul class="title-area">
+                    <li class="name">
+                        <h1 id="location-heading">Finding your location ...</h1>
+                    </li>
+                </ul>
+            </nav>
+        
+            <!-- Content -->
+            <div class="row">
+                <div class="small-12 columns">
+                    <div id="body-block" class="hide small-12 columns panel">
+                    
+                        <!-- Name, Type and Status -->
+                        <div id="title-box" class="small-12 columns">
+                            <h2 id="poi-name" class="poi-data"></h2>
+                            <h3 id="poi-type" class="poi-data"></h3>
+                        </div>
+                        
+                        <!-- Reviews -->
+                        <div id="left-box" class="hide content-column small-12 medium-4 columns">
+                            <div id="left-box-inner" class="small-12 columns">
+                                <h3>Reviews</h3>
+                                <div id="poi-rating" class="hide">
+                                    <svg class="star-rating">
+                                        <path  d="M  8.000 12.000 L 12.702 14.472 L 11.804 9.236
+                                                  L 15.608  5.528 L 10.351  4.764 L  8.000 0.000 
+                                                  L  5.649  4.764 L  0.392  5.528 L  4.196 9.236
+                                                  L  3.298 14.472 L  8.000 12.000"/>
+                                    </svg>
+                                    <svg class="star-rating">
+                                        <path  d="M  8.000 12.000 L 12.702 14.472 L 11.804 9.236
+                                                  L 15.608  5.528 L 10.351  4.764 L  8.000 0.000 
+                                                  L  5.649  4.764 L  0.392  5.528 L  4.196 9.236
+                                                  L  3.298 14.472 L  8.000 12.000"/>
+                                    </svg>
+                                    <svg class="star-rating">
+                                        <path  d="M  8.000 12.000 L 12.702 14.472 L 11.804 9.236
+                                                  L 15.608  5.528 L 10.351  4.764 L  8.000 0.000 
+                                                  L  5.649  4.764 L  0.392  5.528 L  4.196 9.236
+                                                  L  3.298 14.472 L  8.000 12.000"/>
+                                    </svg>
+                                    <svg class="star-rating">
+                                        <path  d="M  8.000 12.000 L 12.702 14.472 L 11.804 9.236
+                                                  L 15.608  5.528 L 10.351  4.764 L  8.000 0.000 
+                                                  L  5.649  4.764 L  0.392  5.528 L  4.196 9.236
+                                                  L  3.298 14.472 L  8.000 12.000"/>
+                                    </svg>
+                                    <svg class="star-rating">
+                                        <path  d="M  8.000 12.000 L 12.702 14.472 L 11.804 9.236
+                                                  L 15.608  5.528 L 10.351  4.764 L  8.000 0.000 
+                                                  L  5.649  4.764 L  0.392  5.528 L  4.196 9.236
+                                                  L  3.298 14.472 L  8.000 12.000"/>
+                                    </svg>
+                                </div>
+                                <h6  id="poi-review" class="poi-data"></h6>
+                            </div>
+                            <div id="overflow-fade" class="hide"></div>
+                        </div>
+                        
+                        <!-- Contact and Route Details -->
+                        <div id="middle-box" class="content-column small-12 medium-4 columns">
+                            <h4 id="poi-phone"    class="poi-data"></h4>
+                            <h4 id="poi-website"  class="poi-data"></h4>
+                            <h4 id="poi-distance" class="poi-data"></h4>
+                        </div>
+                        
+                        <!-- Map -->
+                        <div id="right-box" class="content-column small-12 medium-4 columns">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Next Button -->
+            <div class="row">
+                <div class="hide button-parent small-12 columns">
+                    <a href="#" id="next-button" class="button disabled">next</a>
+                </div>
+            </div>
+        </div>    
+            
+        <!-- Footer -->
+        <footer> 
+            <img src="third-party/google-api/img/powered_by_google_on_non_white.png" alt="Powered by Google">
+        </footer>
+          
+        <!-- JavaScript Includes -->
+        <script src="third-party/foundation-5/js/vendor/jquery.js"></script>
+        <script src="third-party/foundation-5/js/vendor/fastclick.js"></script>
+        <script src="third-party/foundation-5/js/foundation.min.js"></script>
+        <script>$(document).foundation();</script>
+        <script src="places_api_app.js"></script>
+    
+    </body>
+</html>
