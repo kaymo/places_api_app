@@ -37,9 +37,26 @@ var current_result = 0;
  */
 
 /**
- * Summary: Start the location and POI search and display process
+ * Summary: Start the app
  */
 $(document).ready(function() {
+
+    // Show body and button
+    $('#body-block').show();
+    $('.button-parent').show();
+
+    // Resize columns
+    $('#body-block').css({
+        'min-height': Math.max($('body').height() - 200, 400) + 'px'
+    });
+    $('#right-box').height($('#body-block').height() - 150);
+    $('#left-box-inner').css({
+        'max-height': $('#right-box').height() + 'px'
+    });
+
+    placeFooter();
+    
+    // Kick off the search
     getLocation();
 });
 
@@ -369,28 +386,6 @@ $('html').keyup(function(event) {
 /** **************************************************************************************
  * Page Setup
  */
-
-
-/**
- * Function: On load, ensure the responsive elements are relatively correct
- */
-$(window).one('load', function() {
-
-    // Show body and button
-    $('#body-block').show();
-    $('.button-parent').show();
-
-    // Resize columns
-    $('#body-block').css({
-        'min-height': Math.max($('body').height() - 200, 400) + 'px'
-    });
-    $('#right-box').height($('#body-block').height() - 150);
-    $('#left-box-inner').css({
-        'max-height': $('#right-box').height() + 'px'
-    });
-
-    placeFooter();
-});
 
 /**
  * Function: On resize, ensure the responsive elements are relatively correct
