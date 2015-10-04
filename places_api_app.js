@@ -282,7 +282,7 @@ function updateDetails(result, website, phone, review, distance, duration) {
     // POI type and current open/closed status
     var subLine = '';
     if (result.types[0]) {
-        subLine += result.types[0].replace('_', ' ');
+        subLine += result.types[0].replace(/_/g, ' ');
     }
     if (result.opening_hours && result.opening_hours.hasOwnProperty('open_now')) {
         subLine += ' &mdash; ';
