@@ -72,10 +72,10 @@ function showPosition(position) {
                 locat = results[1].formatted_address;
                 coord = latlng;
             } else {
-                alert("No results found ... Imagine you're in " + DEFAULT_PLACE + '.');
+                alert("Location not found ... Imagine you're in " + DEFAULT_PLACE + '.');
             }
         } else {
-            alert("Geocoder failed ... Imagine you're in " + DEFAULT_PLACE + '.');
+            alert("Failed to identify your location ... Imagine you're in " + DEFAULT_PLACE + '.');
         }
 
         searchPOI(locat, coord);
@@ -98,11 +98,11 @@ function showError(undefined) {
 /**
  * Function: Try Google's Places API to search for local POI
  */
-function searchPOI(contents, coord) {
+function searchPOI(locationName, coord) {
 
     // Update the header
-    if ('' !== contents) {
-        $('#location-heading').html('Bored in ' + contents + '?');
+    if ('' !== locationName) {
+        $('#location-heading').html('Bored in ' + locationName + '?');
     }
 
     // Request nearby POI via Google Places API
@@ -147,8 +147,9 @@ function processSearchResults(results, status, pagination) {
     } else {
 
         // Failed Google Places API call
-        result_set = [];
-        showFinalMessage();
+        if (0 === result_set.length) {
+            showFinalMessage();
+        }
     }
 }
 
@@ -157,28 +158,26 @@ function processSearchResults(results, status, pagination) {
  */
 $(window).one('firstResult', function() {
 
-    // Add a Google map
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: coord,
-        zoom: 10,
-        mapTypeControl: false
-    });
-
-    // Show and size the review pane
-    $('#left-box').show();
-    $('#overflow-fade').width($('#left-box').width());
-    $('#overflow-fade').show();
-
-    // Create the Google objects for getting a route
-    service = new google.maps.places.PlacesService(map);
-    directionsService = new google.maps.DirectionsService();
-    directionsDisplay = new google.maps.DirectionsRenderer();
-    directionsDisplay.setMap(map);
-
     // Check that we have a result
     if (0 === result_set.length) {
         showFinalMessage();
     } else {
+
+        // Show and size the review pane
+        $('#left-box').show();
+        $('#overflow-fade').width($('#left-box').width());
+        $('#overflow-fade').show();
+
+        // Add a Google map
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: coord,
+            zoom: 10,
+            mapTypeControl: false
+        });
+
+        // Create the Google objects for getting a route
+        service = new google.maps.places.PlacesService(map);
+        directionsDisplay.setMap(map);
 
         // Request further details on the POI
         requestInfo(result_set[0]);
