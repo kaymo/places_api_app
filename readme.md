@@ -1,6 +1,9 @@
-# A Google-powered, single-page, web-app for telling you what to do with your day.
+# places_api_app
 
-To run: Download the repository and open `places_api_app.html` in a capable browser.
+A Google-powered, single-page, demo web-app for telling you what to do with your day.
+
+## View Demo
+kaymo.github.io/places_api_app
 
 ## Dependencies
 * HTML5 Geolocation
