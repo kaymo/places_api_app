@@ -3,7 +3,7 @@
 A Google-powered, single-page, demo web-app for telling you what to do with your day.
 
 ## View Demo
-kaymo.github.io/places_api_app
+https://kaymo.github.io/places_api_app
 
 ## Dependencies
 * HTML5 Geolocation
